@@ -6,7 +6,10 @@ class Guesser:
         self.opened = ['?' for _ in range(len(word))]
         
     def is_geussed(self):
-        return None
+        for ch in self.opened:
+            if ch == '?':
+                return False
+        return True
         
     def open_char(self, char):
         for i in range(len(self.word)):
@@ -17,8 +20,11 @@ class Guesser:
         return ''.join(self.opened)
         
     def get_word(self):
-        return None
+        return self.word
         
     def has_char(self, char):
-        return None
+        for i in range(len(self.word)):
+            if self.word[i] == char and self.opened[i] != char:
+                return True
+        return False
         
